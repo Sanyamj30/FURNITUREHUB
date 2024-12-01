@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Basket</title>
+    <script src="/js/card one bed.js" defer></script> <!-- Change to 'cartScript.js' -->
+    <style>
+       
+            /* General styling */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f9f9f9;
+    }
+    
+    header {
+        background-color: #f0f0f0;
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #ccc;
+    }
+    
+    header h1 {
+        font-size: 24px;
+        margin: 0;
+    }
+    
+    header .home-icon {
+        font-size: 24px;
+        text-decoration: none;
+        color: #333;
+    }
+    
+    /* Shopping Cart Section */
+    .shopping-cart {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px;
+        background-color: white;
+        margin: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    
+    .cart-items {
+        width: 65%;
+    }
+    
+    .cart-item {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+    
+    .cart-item img {
+        width: 120px;
+        height: auto;
+    }
+    
+    .item-details {
+        flex-grow: 1;
+        padding-left: 20px;
+    }
+    
+    .item-details h3 {
+        font-size: 18px;
+        margin: 0 0 10px;
+    }
+    
+    .original-price {
+        text-decoration: line-through;
+        color: #999;
+        font-size: 14px;
+    }
+    
+    .wishlist-btn {
+        padding: 10px;
+        background-color: #444;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+    
+    .wishlist-btn:hover {
+        background-color: #333;
+    }
+    
+    .item-quantity {
+        display: flex;
+        align-items: center;
+    }
+    
+    .item-quantity select {
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    
+    /* Cart Summary */
+    .cart-summary {
+        width: 30%;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        text-align: right;
+    }
+    
+    .cart-summary h3,
+    .cart-summary h2 {
+        margin: 10px 0;
+    }
+    
+    .cart-summary .discount {
+        color: green;
+    }
+    
+    .checkout-btn {
+        padding: 15px;
+        background-color: #0066cc;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 18px;
+        cursor: pointer;
+        width: 100%;
+        margin-top: 20px;
+    }
+    
+    .checkout-btn:hover {
+        background-color: #004080;
+    }
+    
+    /* Wishlist Section */
+    .wishlist-section {
+        text-align: center;
+        margin: 20px;
+    }
+    
+    .wishlist-page-btn {
+        padding: 10px 20px;
+        background-color: #444;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+    .wishlist-page-btn:hover {
+        background-color: #333;
+    }
+    
+    footer {
+        background-color: #333;
+        color: white;
+        padding: 40px 0;
+        text-align: left;
+    }
+    
+    .container {
+        width: 90%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+    
+    .about-us h2 {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+    
+    .about-us p {
+        font-size: 14px;
+        line-height: 1.6;
+        width: 250px;
+    }
+    
+    .location h3, .products h3, .contact h3, .follow-us h3 {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+    
+    .products ul {
+        list-style: none;
+    }
+    
+    .products ul li {
+        font-size: 14px;
+        margin-bottom: 8px;
+    }
+    
+    .contact p {
+        font-size: 14px;
+        margin-bottom: 6px;
+    }
+    
+    .follow-us .social-icons a {
+        margin-right: 10px;
+    }
+    
+    .follow-us .social-icons a img {
+        width: 24px;
+        height: 24px;
+    }
+    
+    @media (max-width: 768px) {
+        .container {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .about-us, .location, .products, .contact, .follow-us {
+            margin-bottom: 20px;
+        }
+    
+        .about-us p {
+            width: 100%;
+        }
+    }
+    
+        
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Your Shopping Basket</h1>
+        <a href="#" class="home-icon">🏠</a>
+    </header>
+
+    <!-- Shopping Cart Section -->
+    <div class="shopping-cart">
+        <!-- Items -->
+        <div class="cart-items" id="cartItems">
+            <!-- <div class="cart-item">
+                <img src="\photos\bedroom.jpg" alt="Item Image" class="item-image">
+                <div class="item-details">
+                    <h3 class="cart-item-name">Item Name</h3>
+                    <p><span class="original-price">Original Price</span> <span class="cart-item-price">Discounted Price</span></p>
+                    <button class="wishlist-btn">Move to wishlist ♥</button>
+                </div>
+                <div class="item-quantity">
+                    <label for="qty1">Qty:</label>
+                    <select id="qty1">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </div>
+            </div> -->
+        </div>
+
+        <!-- Cart Summary -->
+        <div class="cart-summary">
+            <h3>Total MRP: <span class="total-mrp" id="totalMrp">₹0</span></h3>
+            <h3>Offer Discount: <span class="discount">₹0</span></h3>
+            <h3>Shipping Charges: ₹<span class="shipping-charges">0</span></h3>
+            <h3>Platform Fee: ₹<span class="platform-fee">0</span></h3>
+            <hr />
+            <h2>Total: ₹<span class="cart-total" id="final">0</span></h2>
+            <a href="pay.html"><button class="checkout-btn">Checkout now</button></a>
+        </div>
+    </div>
+
+    <!-- Wishlist Button -->
+    <div class="wishlist-section">
+        <a href="wishlist1.html"><button class="wishlist-page-btn">Go to wishlist ♥</button></a>
+    </div>
+</body>
+<script>
+    window.onload=async()=>{
+        let userId = localStorage.getItem("userId");
+        if(!userId){
+            window.location.href = "/signin";
+        }
+        let res = await fetch(`http://localhost:5000/api/cart/${userId}`).then((d)=>d.json()).then((d)=>d);
+        let productItems = await fetch(`http://localhost:5000/api/getProducts`).then((d)=>d.json()).then((d)=>d);
+        console.log(res);
+        let cartItems = res.cart.items;
+        let cart = document.getElementById('cartItems');
+        for(let i=0;i<cartItems.length;i++){
+            cart.innerHTML+=`
+            <div class="cart-item">
+                <div class="item-details">
+                    <h3 class="cart-item-name">${productItems[cartItems[i].id].name}</h3>
+                    <p><span class="original-price">${cartItems[i].price}</span></p>
+                    <button class="wishlist-btn">Move to wishlist ♥</button>
+                </div>
+                <div class="item-quantity">
+                    <label for="qty1">Qty:${cartItems[i].quantity}</label>          
+                </div>
+            </div>
+            `
+        }
+        let totalMrp = document.getElementById('totalMrp');
+        totalMrp.innerText=`₹${res.cart.total}`
+        let final = document.getElementById('final');
+        final.innerText=`${res.cart.total}`
+    }
+</script>
+</html>

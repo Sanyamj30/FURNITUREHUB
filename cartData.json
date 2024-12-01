@@ -1,0 +1,16 @@
+{
+    "cart": {
+        "items": [
+            {
+                "id": "1",
+                "name": "King size bed 6ft x 5.5ft",
+                "originalPrice": 199998,
+                "discountedPrice": 149998.5,
+                "image": "photos/bedroom.jpg",
+                "quantity": 1
+            }
+        ],
+        "shippingCharges": 780,
+        "platformFee": 10
+    }
+}

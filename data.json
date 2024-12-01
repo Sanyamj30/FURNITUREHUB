@@ -1,0 +1,36 @@
+{
+    "wishlist": [
+      {
+        "id": 1,
+        "name": "King size brown colored bed",
+        "size": "6ft X 5.5ft",
+        "price": 39999,
+        "image": "photos/bedwishlist.jpg",
+        "category": "BED"
+      }
+    ],
+    "recommendations": [
+      {
+        "id": 2,
+        "name": "Dining Table",
+        "price": 39999,
+        "image": "photos/dining-table.jpg",
+        "category": "Dining Table"
+      },
+      {
+        "id": 3,
+        "name": "Wardrobe",
+        "price": 55999,
+        "image": "photos/wardrobe.jpg",
+        "category": "Wardrobe"
+      },
+      {
+        "id": 4,
+        "name": "Lamp",
+        "price": 5999,
+        "image": "photos/lamp.jpg",
+        "category": "Lamp"
+      }
+    ]
+  }
+  

@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FurnitureHUB</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url("wishlist-background.jpg");
+            background-size: cover;
+            background-attachment: fixed;
+
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background-color: #f0f0f0;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        header h1 {
+            font-size: 36px;
+            margin: 0;
+        }
+
+        header nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        header nav ul li {
+            display: inline-block;
+        }
+
+        header nav ul li a {
+            text-decoration: none;
+            padding: 10px;
+            color: #333;
+        }
+
+        .wishlist-container {
+            padding: 20px;
+        }
+
+        .wishlist-container h2 {
+            font-size: 24px;
+        }
+
+        .wishlist-container ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .wishlist-container li {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .wishlist-container li img {
+            width: 100px;
+            height: 100px;
+        }
+
+        .wishlist-container li .product-info {
+            margin-left: 20px;
+        }
+
+        .wishlist-container li .product-info h3 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .wishlist-container li .product-info p {
+            font-size: 16px;
+        }
+
+        .wishlist-container li .product-info button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .recommendations-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 70px;
+        }
+
+        .recommendation-card {
+            border: 1px solid #ccc;
+            padding: 30px;
+            width: 300px;
+            margin-bottom: 10px;
+            background-color: antiquewhite;
+        }
+
+        .recommendation-card h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .recommendation-card p {
+            font-size: 16px;
+        }
+
+        .recommendation-card button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .limited-period-deals {
+            background-color: #f5f5f5;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .limited-period-deals h2 {
+            font-size: 24px;
+        }
+
+        .limited-period-deals p {
+            font-size: 18px;
+        }
+
+        footer {
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+
+        footer .container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        footer h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        footer ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        footer ul li {
+            margin-bottom: 5px;
+        }
+
+        footer ul li a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        .social-icons {
+            display: flex;
+        }
+
+        .social-icons li {
+            margin-right: 10px;
+        }
+
+        .social-icons li a {
+            font-size: 24px;
+            color: #333;
+        }
+
+        .banner-box {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 105px;
+            width: 1348px;
+            background-color: #605555; /* Adjust background color as needed */
+            padding: 10px;
+            border: 1px solid #2b2929; /* Optional: Add a border */
+            margin: 0 auto; 
+            margin-bottom: 50px;
+            margin-top:10px;
+          }
+          
+          .banner-text {
+            text-align: center;
+          }
+          
+          .banner-text p {
+            margin: 0;
+          }
+
+          header {
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-image {
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+        }
+        
+        header nav ul li {
+            padding: 10px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 40px 0;
+        }
+
+        footer .container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        footer .about-us h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        footer .about-us p {
+            font-size: 14px;
+            line-height: 1.6;
+            width: 250px;
+        }
+
+        footer .location h3, footer .products h3, footer .contact h3, footer .follow-us h3 {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        footer .products ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        footer .products ul li {
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        footer .contact p {
+            font-size: 14px;
+            margin-bottom: 6px;
+        }
+
+        footer .follow-us .social-icons a {
+            margin-right: 10px;
+        }
+
+        footer .follow-us .social-icons a img {
+            width: 24px;
+            height: 24px;
+        }
+
+        .social-icons img {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+        }
+
+        @media (max-width: 768px) {
+            footer .container {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            footer .about-us p {
+                width: 100%;
+            }
+
+            footer .products, footer .contact, footer .location {
+                margin-bottom: 20px;
+            }
+        }
+
+        .wishlist1-container {
+            text-align: center;
+            padding: 20px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <header>
+            <div class="logo">
+                <h1><img src="photos\logo.jpg" class="logo-image"> FURNITUREHuB</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Help</a></li>
+                    <li><a href="#">Sign Up/Sign In</a></li>
+                    <li><a href="#"><i class="fa fa-home"></i></a></li>
+                </ul>
+            </nav>
+    </header>
+
+    <main>
+        <div class="wishlist1-container">
+            <h2>No list found</h2>
+            <p>You have no items in your wishlist.</p>
+            <a href="#">Go to cart</a>
+        </div>
+
+        
+        <section class="recommendations-container">
+            <div class="recommendation-card">
+                <img src="photos\dining-table.jpg" alt="King size brown colored bed" style="width:293px; height: px;">
+                <h3>Dinning Table</h3>
+                <p>Rs. 39,999</p>
+                <button>Buy Now</button>
+            </div>
+
+            <div class="recommendation-card">
+                <img src="photos\wardrobe.jpg" alt="King size brown colored bed" style="width:293px; height: px;">
+                <h3>Wardrobe</h3>
+                <p>Rs. 55,999</p>
+                <button>Buy Now</button>
+            </div>
+
+            <div class="recommendation-card">
+                <img src="photos\lamp.jpg" alt="King size brown colored bed" style="width:293px; height: px;">
+                <h3>Lamp</h3>
+                <p>Rs. 5,999</p>
+                <button>Buy Now</button>
+            </div>
+        </section>
+
+        <div class="banner-box">
+            <div class="banner-text">
+              <p>LIMITED PERIOD DEALS</p>
+              <p>EXTRA 25% off</p>
+            </div>
+            <div class="banner-text">
+              <p>Best Deals on</p>
+              <p>500+ Homeware styles</p>
+            </div>
+            <div class="banner-text">
+              <p>USE CODE: EXT25</p>
+            </div>
+          </div>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="about-us">
+                <h2>FURNiTUREHuB</h2>
+                <p>At FURNiTUREHuB, we appreciate craftsmanship, elegance and the long lasting beauty of our furniture. Every product is one of a kind inspired by tradition, innovation and being manufactured with quality and care in mind.</p>
+            </div>
+            <div class="location">
+                <h3>LOCATION</h3>
+            </div>
+            <div class="products">
+                <h3>ALL PRODUCTS</h3>
+                <ul>
+                    <li>SOFA</li>
+                    <li>SOFA SET</li>
+                    <li>BED</li>
+                    <li>LAMP</li>
+                    <li>DINING TABLE</li>
+                    <li>STUDY TABLE</li>
+                    <li>WARDROBE</li>
+                    <li>ORGANIZER</li>
+                </ul>
+            </div>
+            <div class="contact">
+                <h3>Call Center</h3>
+                <p>Email: <a href="mailto:furninest@gmail.com">furninest@gmail.com</a></p>
+                <p>Phone: +91 8967400000</p>
+                <p>Alt: +1 835623</p>
+            </div>
+            <div class="follow-us">
+                <h3>FOLLOW US</h3>
+                <div class="social-icons">
+                    <a href="#"><img src="twitter-icon.png" alt="Twitter"></a>
+                    <a href="#"><img src="instagram-icon.png" alt="Instagram"></a>
+                    <a href="#"><img src="linkedin-icon.png" alt="LinkedIn"></a>
+                    <a href="#"><img src="facebook-icon.png" alt="Facebook"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

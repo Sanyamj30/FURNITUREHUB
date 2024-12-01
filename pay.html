@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FurnitureHub - Shipping & Payment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background-color: #3b3b3b;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+
+        header h1 {
+            font-size: 24px;
+            margin: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        header h1 img {
+            margin-right: 10px;
+        }
+
+        .shipping-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            gap: 20px;
+        }
+
+        .shipping-form, .shipping-details {
+            width: 48%;
+            padding: 20px;
+            border: 1px solid #ddd;
+            background-color: #fff;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .shipping-form h2, .shipping-details h2 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .shipping-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .shipping-form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .shipping-details p {
+            font-size: 16px;
+            margin: 8px 0;
+            color: #333;
+        }
+
+        .shipping-details .total {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 15px;
+            color: #007bff;
+        }
+
+        #payment-button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #payment-button:hover {
+            background-color: #0056b3;
+        }
+
+        .logo-image {
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1><img src="photos/logo.jpg" class="logo-image"> FURNITUREHuB</h1>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="shipping-container">
+                <div class="shipping-form">
+                    <h2>Add Shipping Address</h2>
+                    <label for="flat-no">Flat no./House no.</label>
+                    <input type="text" id="flat-no" name="flat-no">
+                    <label for="street-name">Street name/ Area name</label>
+                    <input type="text" id="street-name" name="street-name">
+                    <label for="landmark">Landmark (Optional)</label>
+                    <input type="text" id="landmark" name="landmark">
+                    <label for="pincode">Pincode</label>
+                    <input type="text" id="pincode" name="pincode">
+                    <label for="city">City</label>
+                    <input type="text" id="city" name="city">
+                    <label for="state">State</label>
+                    <input type="text" id="state" name="state">
+                </div>
+                <div class="shipping-details">
+                    <h2>Shipping Details</h2>
+                    <p><strong>Total MRP:</strong> <input type="number" id="total-mrp" value="199998"></p>
+                    <p><strong>Offer Discount:</strong> <input type="number" id="offer-discount" value="-49999.5"></p>
+                    <p><strong>Shipping Charges:</strong> <input type="number" id="shipping-charges" value="780"></p>
+                    <p><strong>Platform Fee:</strong> <input type="number" id="platform-fee" value="10"></p>
+                    <p class="total"><strong>Total:</strong> <span id="total-price">150788.5</span></p>
+                </div>
+            </div>
+            <div class="payment-button-container">
+                <button id="payment-button">Proceed to Payment</button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Function to calculate the total
+        function calculateTotal() {
+            // Parse values from input fields
+            const totalMRP = parseFloat(document.getElementById('total-mrp').value) || 0;
+            const offerDiscount = parseFloat(document.getElementById('offer-discount').value) || 0;
+            const shippingCharges = parseFloat(document.getElementById('shipping-charges').value) || 0;
+            const platformFee = parseFloat(document.getElementById('platform-fee').value) || 0;
+
+            // Calculate the total price
+            const totalPrice = totalMRP + offerDiscount + shippingCharges + platformFee;
+
+            // Update the total price on the page
+            document.getElementById('total-price').textContent = totalPrice.toFixed(2);
+        }
+
+        // Attach event listeners to input fields to recalculate on change
+        document.getElementById('total-mrp').addEventListener('input', calculateTotal);
+        document.getElementById('offer-discount').addEventListener('input', calculateTotal);
+        document.getElementById('shipping-charges').addEventListener('input', calculateTotal);
+        document.getElementById('platform-fee').addEventListener('input', calculateTotal);
+
+        // Initial calculation on page load
+        document.addEventListener('DOMContentLoaded', calculateTotal);
+    </script>
+</body>
+</html>

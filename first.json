@@ -1,0 +1,46 @@
+{
+    "products": [
+        {
+            "name": " Dining Table",
+            "category": "Furniture",
+            "url": "bed-page.html",
+            "image": "photos/dining-table.jpg",
+            "description": "set."
+        },
+        {
+            "name": "Wardrobe",
+            "category": "Furniture",
+            "url": "bed-page.html",
+            "image": "photos/wardrobe.jpg",
+            "description": "Spacious wardrobe with multiple compartments."
+        },
+        {
+            "name": "Sofa",
+            "category": "Furniture",
+            "url": "sofa-page.html",
+            "image": "photos/sofa1.jpg",
+            "description": "Comfortable and stylish sofa for your living room."
+        },
+        {
+            "name": "Lamp",
+            "category": "Home Decor",
+            "url": "lamp.html",
+            "image": "photos/lamp.jpg",
+            "description": "Modern lamp to light up your space."
+        },
+        {
+            "name": "Study Table",
+            "category": "Furniture",
+            "url": "study-table.html",
+            "image": "photos/study-table.jpg",
+            "description": "Functional study table with drawers."
+        },
+        {
+            "name": "Bed",
+            "category": "Furniture",
+            "url": "bed-page.html",
+            "image": "photos/bed1.jpg",
+            "description": "Luxurious bed for a peaceful sleep."
+        }
+    ]
+}
